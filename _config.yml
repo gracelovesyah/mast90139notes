@@ -31,6 +31,16 @@ html:
   use_issues_button: true
   use_repository_button: true
 
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
+
 sphinx:
   config:
-    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    mathjax_path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    mathjax_config:
+      tex2jax:
+        inlineMath: [["$","$"]]
+    myst_update_mathjax: false 
