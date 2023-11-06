@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2.1 Heart Disease Example &#8212; My sample book</title>
   
   
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -425,19 +429,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p>/* cSpell:disable */</p>
-<div class="section" id="heart-disease-example">
+<section id="heart-disease-example">
 <h1>2.1 Heart Disease Example<a class="headerlink" href="#heart-disease-example" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><p>This study focused on finding the influential factors of getting(yes or no) a coronary heart diseas(chd) by fitting logistic regression (as the response is binary).</p>
 </div></blockquote>
-<div class="section" id="logistic-regression">
+<section id="logistic-regression">
 <h2>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h2>
 <div class="admonition-when-to-use admonition">
 <p class="admonition-title">When to use </p>
 <p>Suppose the response variable Y is binary with P (Y = 1) = p and P (Y = 0) = 1 p.
 Thus Y follows a Bernoulli (a special binomial) distribution.</p>
 </div>
-<div class="section" id="statistic-model">
+<section id="statistic-model">
 <h3>Statistic Model<a class="headerlink" href="#statistic-model" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-main-idea">
 <span class="eqno">(1)<a class="headerlink" href="#equation-main-idea" title="Permalink to this equation">#</a></span>\[\begin{split}log\frac{p_i}{1-p_i} &amp;= \beta_0 + \beta_1x_{i1} + ... + \beta_qx_{iq}\\
@@ -449,8 +453,8 @@ p_i &amp;= \frac{e^{\eta_i }}{1+ e^{\eta_i }} =  \frac{1}{1+ e^{-\eta_i }}\\
 e^{\eta_i} &amp;= \frac{p_i}{1-p_i}\\
 1-p_i &amp;= \frac{1}{1+ e^{\eta_i}} =  \frac{e^{-\eta_i }}{1+ e^{-\eta_i}}\end{split}\]</div>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/probodds.png"><img alt="probodds" class="bg-primary mb-1 align-center" src="_images/probodds.png" style="width: 300px;" /></a>
-</div>
-<div class="section" id="parameter-names">
+</section>
+<section id="parameter-names">
 <h3>Parameter Names<a class="headerlink" href="#parameter-names" title="Permalink to this heading">#</a></h3>
 <div class="admonition-names admonition">
 <p class="admonition-title">Names</p>
@@ -465,44 +469,44 @@ Odds ratio: $$e^{\eta}$$
 Note: $\eta_i = \beta_0 + \beta_1x_{i1} = \boldsymbol{x_i}^\top \boldsymbol{\beta}$</p>
 <p>$p$ is denoted as $\pi$ sometimes.</p>
 </div>
-</div>
-<div class="section" id="parameter-estimation">
+</section>
+<section id="parameter-estimation">
 <h3>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h3>
 <div class="admonition-main-idea admonition">
 <p class="admonition-title">Main Idea</p>
 <p>To estimate $\beta$ by the method of maximum likelihood This can be achieved withe the log-likelihood function $l(\beta)$.</p>
 </div>
-<div class="section" id="log-likelihood">
+<section id="log-likelihood">
 <h4>Log Likelihood<a class="headerlink" href="#log-likelihood" title="Permalink to this heading">#</a></h4>
 <p>The likelihood function (often simply called the likelihood) is the joint probability of the observed data viewed as a function of the parameters of a statistical model. Mathmatical proof can be seen at this
 <a href="https://www.statlect.com/fundamentals-of-statistics/logistic-model-maximum-likelihood" target="_blank">link</a>.</p>
 <div class="math notranslate nohighlight" id="equation-log-like">
 <span class="eqno">(3)<a class="headerlink" href="#equation-log-like" title="Permalink to this equation">#</a></span>\[\begin{split}l(\boldsymbol{\beta} | \boldsymbol{y}, \boldsymbol{X}) &amp;= \sum_{i=1}^{n} \left[y_i \log p_i + (1 - y_i) \log (1 - p_i)\right]\\
 l(\boldsymbol{\beta} | \boldsymbol{y}, \boldsymbol{X}) &amp;= \sum_{i=1}^{n} y_i \log \left(\frac{1}{1 + e^{-\boldsymbol{x_i}^\top \boldsymbol{\beta}}}\right) + (1 - y_i) \log \left(\frac{e^{-\boldsymbol{x_i}^\top \boldsymbol{\beta}}}{1 + e^{-\boldsymbol{x_i}^\top \boldsymbol{\beta}}}\right)\end{split}\]</div>
-<p>This transformation is done with <a class="reference internal" href="smds/c2.1%202.html#equation-p-and-e">()</a></p>
-</div>
-<div class="section" id="score-function">
+<p>This transformation is done with <a class="reference internal" href="#equation-p-and-e">(2)</a></p>
+</section>
+<section id="score-function">
 <h4>Score function<a class="headerlink" href="#score-function" title="Permalink to this heading">#</a></h4>
 <p>first derivative of log-likelihood function</p>
 <div class="math notranslate nohighlight" id="equation-sf">
 <span class="eqno">(4)<a class="headerlink" href="#equation-sf" title="Permalink to this equation">#</a></span>\[u(\beta) = \frac{\partial \boldsymbol{l}(\boldsymbol{\beta} | \boldsymbol{y}, \boldsymbol{X})}{\partial \boldsymbol{\beta}} = \sum_{i=1}^{n} (\boldsymbol{x_i}^\top (\boldsymbol{y} - \boldsymbol{p}))\]</div>
-</div>
-<div class="section" id="hessian-function">
+</section>
+<section id="hessian-function">
 <h4>Hessian function<a class="headerlink" href="#hessian-function" title="Permalink to this heading">#</a></h4>
 <p>second derivative of log-likelihood function</p>
 <div class="math notranslate nohighlight" id="equation-hf">
 <span class="eqno">(5)<a class="headerlink" href="#equation-hf" title="Permalink to this equation">#</a></span>\[\boldsymbol{H}(\boldsymbol{\beta} | \boldsymbol{X}) = -\sum_{i=1}^{n} p_i (1-p_i) \boldsymbol{x_i} \boldsymbol{x_i}^\top\]</div>
-</div>
-<div class="section" id="observed-information">
+</section>
+<section id="observed-information">
 <h4>Observed information<a class="headerlink" href="#observed-information" title="Permalink to this heading">#</a></h4>
-<p>Negative Hessian function <a class="reference internal" href="smds/c2.1%202.html#equation-hf">()</a>
+<p>Negative Hessian function <a class="reference internal" href="#equation-hf">(5)</a>
 $$
 \boldsymbol{I}(\boldsymbol{\beta} | \boldsymbol{X}) = -\frac{\partial^2 \boldsymbol{l}(\boldsymbol{\beta} | \boldsymbol{y}, \boldsymbol{X})}{\partial \boldsymbol{\beta} \partial \boldsymbol{\beta}^\top} = \sum_{i=1}^{n} p_i (1-p_i) \boldsymbol{x_i} \boldsymbol{x_i}^\top
 $$</p>
-</div>
-<div class="section" id="fisher-information">
+</section>
+<section id="fisher-information">
 <h4>Fisher information<a class="headerlink" href="#fisher-information" title="Permalink to this heading">#</a></h4>
-<p>Negative Expetation of Hessian function <a class="reference internal" href="smds/c2.1%202.html#equation-hf">()</a>
+<p>Negative Expetation of Hessian function <a class="reference internal" href="#equation-hf">(5)</a>
 $$
 \boldsymbol{J}(\boldsymbol{\beta} | \boldsymbol{X}) = \mathbb{E} \left[ -\frac{\partial^2 \log f(\boldsymbol{y} | \boldsymbol{X}, \boldsymbol{\beta})}{\partial \boldsymbol{\beta} \partial \boldsymbol{\beta}^\top} \right] = \mathbb{E}  \sum_{i=1}^{n} p_i (1-p_i) \boldsymbol{x_i} \boldsymbol{x_i}^\top
 $$</p>
@@ -510,8 +514,8 @@ $$</p>
 <p class="admonition-title">Tip</p>
 <p>For logistic regression Fisher Information is equivalent to Observed information</p>
 </div>
-</div>
-<div class="section" id="mle">
+</section>
+<section id="mle">
 <h4>MLE<a class="headerlink" href="#mle" title="Permalink to this heading">#</a></h4>
 <p>$$
 \hat{\boldsymbol{\beta}} = \arg\max_{\boldsymbol{\beta}} \boldsymbol{l}(\boldsymbol{\beta} | \boldsymbol{y}, \boldsymbol{X})
@@ -519,10 +523,10 @@ $$
 $$
 \boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} + \left(\boldsymbol{J}(\boldsymbol{\beta}^{(t)})\right)^{-1} \boldsymbol{u}(\boldsymbol{\beta}^{(t)})
 $$
-Where J is fisher information <a class="reference internal" href="smds/c2.1%202.html#equation-fi">()</a>, u is score function<a class="reference internal" href="smds/c2.1%202.html#equation-sf">()</a></p>
-</div>
+Where J is fisher information <code class="xref eq docutils literal notranslate"><span class="pre">fi</span></code>, u is score function<a class="reference internal" href="#equation-sf">(4)</a></p>
+</section>
 <hr class="docutils" />
-<div class="section" id="how-to-find-mle-chatgpt">
+<section id="how-to-find-mle-chatgpt">
 <h4>How to find MLE (ChatGPT)<a class="headerlink" href="#how-to-find-mle-chatgpt" title="Permalink to this heading">#</a></h4>
 <p>Sure, here’s the reformatted answer with $..$ for in-text LaTeX:</p>
 <p>To find the estimate of the maximum likelihood estimator (MLE) for a given statistical model, you need to follow these steps:</p>
@@ -559,13 +563,13 @@ Where J is fisher information <a class="reference internal" href="smds/c2.1%202.
 </ol>
 <p>$$\frac{\partial^2}{\partial \mu^2}\ln L(\mu, \sigma^2) = -\frac{n}{2\sigma^2},$$</p>
 <p>which is negative for all values of $\mu$ and $\sigma^2$, so the MLE estimate for $\mu$ corresponds to a maximum of the log-likelihood function.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="useful-coding">
+<section id="useful-coding">
 <h2>Useful Coding<a class="headerlink" href="#useful-coding" title="Permalink to this heading">#</a></h2>
-<div class="section" id="exploratory-data-analysis">
+<section id="exploratory-data-analysis">
 <h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Read data
 dim(wcgs)
@@ -586,8 +590,8 @@ ggplot(wcgs, aes(x=cigs, color=chd)) + geom_histogram(position=&quot;dodge&quot;
 <p class="admonition-title">Note</p>
 <p>From the above plots we found that there is relationship pattern between height, cigarette usage and chd. Although we want to fit a linear model, the response of linear model can’t be binary. Hence we use <b>logistic regression</b> to present the response (chd) in terms of probability</p>
 </div>
-</div>
-<div class="section" id="lr-model-fit">
+</section>
+<section id="lr-model-fit">
 <h3>LR model fit<a class="headerlink" href="#lr-model-fit" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lmod</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">chd</span> <span class="o">~</span> <span class="n">height</span> <span class="o">+</span> <span class="n">cigs</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">,</span> <span class="n">wcgs</span><span class="p">)</span> 
 <span class="n">beta</span> <span class="o">&lt;-</span> <span class="n">coef</span><span class="p">(</span><span class="n">lmod</span><span class="p">);</span> <span class="n">summary</span><span class="p">(</span><span class="n">lmod</span><span class="p">)</span> 
@@ -598,10 +602,10 @@ ggplot(wcgs, aes(x=cigs, color=chd)) + geom_histogram(position=&quot;dodge&quot;
 <blockquote>
 <div><p>In R, adding jitter to a plot means adding a small amount of random noise to the data points to help visualize overlapping points. This can be useful when visualizing categorical or discrete data, as it can help distinguish data points that are otherwise indistinguishable due to their exact values being the same.</p>
 </div></blockquote>
-<p>Here is a <a class="reference internal" href="intro.html"><span class="doc std std-doc">reference to the intro</span></a>. Here is a reference to <a class="reference internal" href="smds/mymarkdown.html#section-label"><span class="std std-ref">Here’s my first section</span></a>.1</p>
-</div>
-</div>
-</div>
+<p>Here is a <a class="reference internal" href="intro.html"><span class="doc std std-doc">reference to the intro</span></a>. Here is a reference to <span class="xref myst"></span>.1</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

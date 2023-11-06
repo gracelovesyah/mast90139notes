@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Prac6 &#8212; My sample book</title>
   
   
@@ -176,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -196,8 +198,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -405,7 +409,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="prac6">
+  <section id="prac6">
 <h1>Prac6<a class="headerlink" href="#prac6" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -443,8 +447,8 @@ peard &lt;- sum(resid(fit.5, type = &quot;pearson&quot;)^2)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BP</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;-</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">CHOL</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;-</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">rep</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">fit</span><span class="o">.</span><span class="mi">5</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span><span class="o">.</span><span class="n">v</span> <span class="o">+</span> <span class="n">BP</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fit</span><span class="mf">.5</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span><span class="o">.</span><span class="n">v</span> <span class="o">+</span> <span class="n">BP</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">fit</span><span class="mf">.5</span><span class="p">)</span>
 <span class="c1"># logit = -5.0916  + 0.53C + 0.4405B</span>
 </pre></div>
 </div>
@@ -545,10 +549,10 @@ sqrt(c(0,2,-2)%*%summary(fit.5)$cov.un%*%matrix(c(0,2,-2),3,1))
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="q6-q10">
+</section>
+<section id="q6-q10">
 <h1>Q6 - Q10<a class="headerlink" href="#q6-q10" title="Permalink to this heading">#</a></h1>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

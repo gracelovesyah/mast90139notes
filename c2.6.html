@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2.6 Goodness of fit &amp; $\chi^2$ Test &#8212; My sample book</title>
   
   
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -411,12 +415,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="goodness-of-fit-chi-2-test">
+  <section id="goodness-of-fit-chi-2-test">
 <h1>2.6 Goodness of fit &amp; $\chi^2$ Test<a class="headerlink" href="#goodness-of-fit-chi-2-test" title="Permalink to this heading">#</a></h1>
 <p>Deviance cannot be used as a measure of fit for binary response GLM. Hence what do we use to measure the fit of a Binary GLM?</p>
 <p>Hosmer-Lemeshow statistic!
 ROC curve is used to present the goodness of fit.</p>
-<div class="section" id="hosmer-lemeshow-statistic">
+<section id="hosmer-lemeshow-statistic">
 <h2>Hosmer-Lemeshow statistic<a class="headerlink" href="#hosmer-lemeshow-statistic" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight" id="equation-hls">
 <span class="eqno">(8)<a class="headerlink" href="#equation-hls" title="Permalink to this equation">#</a></span>\[ \begin{align}\begin{aligned}H &amp;= \sum_{i=1}^{G} \frac{(O_{i} - E_{i})^2}{E_{i}(1 - E_{i}/n_{i})}\\ &amp;= \sum_{j=1}^{J} \frac{(y_j -m_j\bar{\hat{p_j}})^2}{ m_j \bar{\hat{p_j} (1 - \bar{\hat{p_j}})}}\end{aligned}\end{align} \]</div>
@@ -426,8 +430,8 @@ ROC curve is used to present the goodness of fit.</p>
 <p>$O_{i}$  is the observed number of outcomes in the ith group.</p>
 <p>$E_{i}$ is the expected number of outcomes in the ith group.</p>
 <p>$n_{i}$ is the total number of observations in the ith group.</p>
-</div>
-<div class="section" id="hypothesis-test-with-p-value">
+</section>
+<section id="hypothesis-test-with-p-value">
 <h2>Hypothesis test with p-value<a class="headerlink" href="#hypothesis-test-with-p-value" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>1-pchisq(94.28042, 100-1) #  0.6153527</p>
@@ -436,15 +440,15 @@ ROC curve is used to present the goodness of fit.</p>
 <p class="admonition-title">Is there a lack of fit in this model?</p>
 <p>No. p-value &gt; 0.05, no evidence to reject the H0: the model provides the good fit. # Reasoning: as we are comparing the current model with the full model. H0 always thinks that the smaller model gives a better fit. (and the current model is the smaller model)</p>
 </div>
-</div>
-<div class="section" id="roc-curve">
+</section>
+<section id="roc-curve">
 <h2>ROC Curve<a class="headerlink" href="#roc-curve" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>The plot of sensitivity vs. 1 – specificity (also called false positive rate) is named the ROC curve.</p>
 </div></blockquote>
-<div class="section" id="confusion-matrix">
+<section id="confusion-matrix">
 <h3>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Predicted Negative</p></th>
@@ -470,9 +474,9 @@ ROC curve is used to present the goodness of fit.</p>
 <p>sensitivity rate: predicted correct yes / actual yes</p>
 <p>where actual no = predicted correct no + predicted incorrect no (i.e. actual no but pred yes)</p>
 </div>
-</div>
-</div>
-<div class="section" id="pearsons-chi-square-test-for-goodness-of-fit">
+</section>
+</section>
+<section id="pearsons-chi-square-test-for-goodness-of-fit">
 <h2>Pearson’s Chi-square test for goodness of fit<a class="headerlink" href="#pearsons-chi-square-test-for-goodness-of-fit" title="Permalink to this heading">#</a></h2>
 <p>If yi is the observed binomial response for group i with group size mi</p>
 <div class="math notranslate nohighlight" id="equation-chi">
@@ -482,8 +486,8 @@ ROC curve is used to present the goodness of fit.</p>
 <div class="math notranslate nohighlight" id="equation-chi2">
 <span class="eqno">(10)<a class="headerlink" href="#equation-chi2" title="Permalink to this equation">#</a></span>\[\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i} = \sum_{i} \frac{(y_i -\hat{y_i})^2}{\hat{y_i}} =  \sum_{i} \frac{(y_i -\hat{y_i})^2}{\hat{Var}(y_i)}\]</div>
 <p>where the sum is taken over all <strong>“successe” and “failures”</strong>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

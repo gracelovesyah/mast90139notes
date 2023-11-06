@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2.4 Diagnostic in binary regression &#8212; My sample book</title>
   
   
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -407,20 +411,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="diagnostic-in-binary-regression">
+  <section id="diagnostic-in-binary-regression">
 <h1>2.4 Diagnostic in binary regression<a class="headerlink" href="#diagnostic-in-binary-regression" title="Permalink to this heading">#</a></h1>
-<div class="section" id="raw-residual">
+<section id="raw-residual">
 <h2>Raw Residual<a class="headerlink" href="#raw-residual" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[r_i^{raw} = Y_i - \hat{p_i}\]</div>
-<p>where p_i can be refer from <a class="reference internal" href="smds/c2.1%202.html#equation-p-and-e">()</a></p>
-</div>
-<div class="section" id="deviance-residuals-the-default-ones-in-glm">
+<p>where p_i can be refer from <a class="reference internal" href="c2.1.html#equation-p-and-e">(2)</a></p>
+</section>
+<section id="deviance-residuals-the-default-ones-in-glm">
 <h2>Deviance Residuals (the default ones in GLM)<a class="headerlink" href="#deviance-residuals-the-default-ones-in-glm" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[r_i = sign(y_i - \hat{p_i})\sqrt{\Delta D}\]</div>
-</div>
-<div class="section" id="pearson-residuals">
+</section>
+<section id="pearson-residuals">
 <h2>Pearson Residuals<a class="headerlink" href="#pearson-residuals" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[r_i = \frac{Y_i - \hat{p_i}}{\sqrt{\hat{p_i} (1-\hat{p_i} )}}
@@ -432,8 +436,8 @@ ggplot(diagdf, aes(x=height,y=residuals)) + geom_point()
 
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

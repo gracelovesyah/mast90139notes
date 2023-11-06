@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>4.3 Bernoulli trials and the binomial distribution &#8212; My sample book</title>
   
   
@@ -65,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'c4.3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 5 Analysis of Contingency Tables by Log Linear Models" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html" />
+    <link rel="next" title="4.6 Residuals" href="c4.6.html" />
     <link rel="prev" title="4.1 Intro" href="c4.1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -416,13 +420,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="bernoulli-trials-and-the-binomial-distribution">
+  <section id="bernoulli-trials-and-the-binomial-distribution">
 <h1>4.3 Bernoulli trials and the binomial distribution<a class="headerlink" href="#bernoulli-trials-and-the-binomial-distribution" title="Permalink to this heading">#</a></h1>
-<div class="section" id="bernoulli-trials">
+<section id="bernoulli-trials">
 <h2>Bernoulli trials<a class="headerlink" href="#bernoulli-trials" title="Permalink to this heading">#</a></h2>
 <p>a sequence of trials each with just two possible outcomes, “success” and “failure” and Pr(success) = ⇡, independent of the outcome of any other trial.</p>
-</div>
-<div class="section" id="binomial-distribution">
+</section>
+<section id="binomial-distribution">
 <h2>Binomial distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this heading">#</a></h2>
 <p>Probability mass function:</p>
 <div class="math notranslate nohighlight">
@@ -439,8 +443,8 @@ $$</p>
 $$
 \sigma^2 = np(1-p)
 $$</p>
-</div>
-<div class="section" id="normal-approximation">
+</section>
+<section id="normal-approximation">
 <h2>Normal approximation<a class="headerlink" href="#normal-approximation" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[P(a \leq X \leq b) \approx \Phi\left(\frac{b+0.5-np}{\sqrt{np(1-p)}}\right) - \Phi\left(\frac{a-0.5-np}{\sqrt{np(1-p)}}\right)\]</div>
@@ -448,9 +452,9 @@ $$</p>
 <p>If $ Y = Bin(m,p)$ and $ X = N(mp, mp(1-p))$ then $$ Y \stackrel{d}{\approx} X $$</p>
 <p>$$ Pr(Y = y) \approx Pr(y - 0.5 \leq X \leq y + 0.5) $$
 provided both mp and m(1-p) are $\geq$ 5</p>
-</div>
-</div>
-<div class="section" id="link-functions-for-binomial-data">
+</section>
+</section>
+<section id="link-functions-for-binomial-data">
 <h1>4.4 Link functions for binomial data<a class="headerlink" href="#link-functions-for-binomial-data" title="Permalink to this heading">#</a></h1>
 <p>Logit link:</p>
 <div class="math notranslate nohighlight" id="equation-logit">
@@ -464,14 +468,14 @@ provided both mp and m(1-p) are $\geq$ 5</p>
 <p>log-log link:</p>
 <div class="math notranslate nohighlight" id="equation-loglog">
 <span class="eqno">(14)<a class="headerlink" href="#equation-loglog" title="Permalink to this equation">#</a></span>\[loglog{\pi} = ln(-ln(\pi))\]</div>
-<div class="section" id="properties-of-logit-function">
+<section id="properties-of-logit-function">
 <h2>Properties of logit function<a class="headerlink" href="#properties-of-logit-function" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}Prob &amp;= \pi\\Odds &amp;= \frac{\pi}{1-\pi} = \phi\\log(odds) &amp;= logit{\pi}\\ln(\phi) &amp;= logit(\pi) = log-odds \stackrel{denote}{=} \gamma\\logit(1-\pi) &amp;= -logit(\pi)\\logit(0) &amp;= -\infty; logit(0.5) = 0, logit(1) = \infty
 \end{aligned}\end{align} \]</div>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/probodds.png"><img alt="probodds" class="bg-primary mb-1 align-center" src="_images/probodds.png" style="width: 300px;" /></a>
-</div>
-<div class="section" id="parameter-estimation">
+</section>
+<section id="parameter-estimation">
 <h2>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>Uses the method of maximum likelihood (iteratively reweighted least squares or IRWLS — see Chapter 3)</p>
@@ -479,8 +483,8 @@ provided both mp and m(1-p) are $\geq$ 5</p>
 <blockquote>
 <div><p>Exact properties of estimators (distributions, means, variances etc) not known but, asymptotically, estimators are normally distributed, unbiased with variance (or dispersion) matrix given by the inverse of the“Information Matrix”, see Chapter 3.</p>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -523,11 +527,11 @@ provided both mp and m(1-p) are $\geq$ 5</p>
       </div>
     </a>
     <a class="right-next"
-       href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html"
+       href="c4.6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 5 Analysis of Contingency Tables by Log Linear Models</p>
+        <p class="prev-next-title">4.6 Residuals</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

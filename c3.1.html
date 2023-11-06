@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>3.1 Intro &#8212; My sample book</title>
   
   
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -421,9 +425,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="intro">
+  <section id="intro">
 <h1>3.1 Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h1>
-<div class="section" id="link-function">
+<section id="link-function">
 <h2>Link Function<a class="headerlink" href="#link-function" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[g(\mu_i) = \eta_i = x_i^{T} \beta\]</div>
@@ -431,8 +435,8 @@ document.write(`
 <div><p>g(·) is called the link function
 If g(μi) is set to equal the canonical parameter in the exponential family, g(·) is called the natural link or canonical link.</p>
 </div></blockquote>
-</div>
-<div class="section" id="canonical-form">
+</section>
+<section id="canonical-form">
 <h2>Canonical Form<a class="headerlink" href="#canonical-form" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[ln f(y|\theta, \phi) = \frac{y \theta - b(\theta)}{a(\phi)} + c (y, \phi)\]</div>
@@ -445,42 +449,42 @@ If g(μi) is set to equal the canonical parameter in the exponential family, g(�
 <p>step2: express $\lambda$ in terms of $\theta$ (i.e. $\lambda = e^{\theta}$)</p>
 <p>step3: express $\mu$ interms of $\theta$ and then in terms of  $\lambda$. (same for $\sigma^2$)</p>
 </div>
-</div>
-</div>
-<div class="section" id="estimation">
+</section>
+</section>
+<section id="estimation">
 <h1>3.2 Estimation<a class="headerlink" href="#estimation" title="Permalink to this heading">#</a></h1>
-<div class="section" id="method-of-scoring">
+<section id="method-of-scoring">
 <h2>Method of Scoring<a class="headerlink" href="#method-of-scoring" title="Permalink to this heading">#</a></h2>
-<div class="section" id="mle">
+<section id="mle">
 <h3>MLE<a class="headerlink" href="#mle" title="Permalink to this heading">#</a></h3>
 <p>MLE $\hat{\beta}$ is solved by Newton-Raphson (obs. info) or Fisher scoring.</p>
 <p>$$ X^T W X \hat{\beta} = X^TWy$$</p>
-</div>
-<div class="section" id="irwls">
+</section>
+<section id="irwls">
 <h3>IRWLS<a class="headerlink" href="#irwls" title="Permalink to this heading">#</a></h3>
 <p>iteratively re-weighted least squares(IRWLS).</p>
 <blockquote>
 <div><p>updating z and $\lambda$ based on $\beta$</p>
 </div></blockquote>
-</div>
-<div class="section" id="example-code">
+</section>
+<section id="example-code">
 <h3>Example Code<a class="headerlink" href="#example-code" title="Permalink to this heading">#</a></h3>
 <p>Fit the poisson model where $ln\lambda_i = \beta_0 + \beta_1x_i$ to the following data:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">pr</span><span class="o">.</span><span class="mi">1</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">pr</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">pr</span><span class="mf">.1</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">summary</span><span class="p">(</span><span class="n">pr</span><span class="mf">.1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="glm-estimation-with-natural-link">
+</section>
+</section>
+<section id="glm-estimation-with-natural-link">
 <h2>GLM estimation with natural link<a class="headerlink" href="#glm-estimation-with-natural-link" title="Permalink to this heading">#</a></h2>
-</div>
-<div class="section" id="inference">
+</section>
+<section id="inference">
 <h2>Inference<a class="headerlink" href="#inference" title="Permalink to this heading">#</a></h2>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
