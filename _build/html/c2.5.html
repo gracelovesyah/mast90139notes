@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2.5 Model selection in logistic regression &#8212; My sample book</title>
   
   
@@ -176,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -196,8 +198,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -405,9 +409,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="model-selection-in-logistic-regression">
+  <section id="model-selection-in-logistic-regression">
 <h1>2.5 Model selection in logistic regression<a class="headerlink" href="#model-selection-in-logistic-regression" title="Permalink to this heading">#</a></h1>
-<div class="section" id="backward-elimination">
+<section id="backward-elimination">
 <h2>Backward Elimination<a class="headerlink" href="#backward-elimination" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drop1</span><span class="p">()</span> <span class="c1"># drop1(lmod, test=&quot;Chi&quot;)</span>
 <span class="n">lmodr</span> <span class="o">&lt;-</span> <span class="n">step</span><span class="p">(</span><span class="n">lmod</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span> 
@@ -419,14 +423,14 @@ document.write(`
 <p>Backwards elimination started with the full model. P-value of each dropped predictor will be compared to decide which will be dropped (by eliminating the <strong>largest</strong> p-value-predictor). Drop function will be stopped when there’s no greater than 0.5 p-values/</p>
 </div>
 <p>AIC = -2logL+2q &lt;=&gt; AIC=deviance+2q (use q logn not 2q if BIC)</p>
-</div>
-<div class="section" id="aic-bic">
+</section>
+<section id="aic-bic">
 <h2>AIC &amp; BIC<a class="headerlink" href="#aic-bic" title="Permalink to this heading">#</a></h2>
-</div>
-<div class="section" id="subset-selection">
+</section>
+<section id="subset-selection">
 <h2>Subset Selection<a class="headerlink" href="#subset-selection" title="Permalink to this heading">#</a></h2>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2.2 Interpretation &amp; Hypothesis &amp; CI &#8212; My sample book</title>
   
   
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -198,8 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -432,11 +436,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="interpretation-hypothesis-ci">
+  <section id="interpretation-hypothesis-ci">
 <h1>2.2 Interpretation &amp; Hypothesis &amp; CI<a class="headerlink" href="#interpretation-hypothesis-ci" title="Permalink to this heading">#</a></h1>
-<div class="section" id="odds-ratio-interpretation">
+<section id="odds-ratio-interpretation">
 <h2>Odds Ratio Interpretation<a class="headerlink" href="#odds-ratio-interpretation" title="Permalink to this heading">#</a></h2>
-<div class="section" id="chd-example">
+<section id="chd-example">
 <h3>CHD example<a class="headerlink" href="#chd-example" title="Permalink to this heading">#</a></h3>
 <p>Variables that might be related to the chance of developing this disease?</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/chd1.png"><img alt="fishy" class="bg-primary mb-1 align-center" src="_images/chd1.png" style="width: 500px;" /></a>
@@ -454,11 +458,11 @@ document.write(`
 <p class="admonition-title">Interpretation?</p>
 <p>The estimated odds ratio of heart disease for a man against another man 1 inch shorter is 1.026. The estimated odds of chd increase by 2.3% with each additional cigarette smoked per day.</p>
 </div>
-</div>
-</div>
-<div class="section" id="hypothesis-testing">
+</section>
+</section>
+<section id="hypothesis-testing">
 <h2>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h2>
-<div class="section" id="test-significance-of-predictors">
+<section id="test-significance-of-predictors">
 <h3>Test significance of predictors<a class="headerlink" href="#test-significance-of-predictors" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p>LR test, Wald test, Score test can be applied to test:</p>
@@ -468,7 +472,7 @@ document.write(`
 </div></blockquote>
 <p>H0: β has no effect (i.e. predictor not significant)<br>
 H1: β has effect (i.e. predictor is significant)</p>
-<div class="section" id="likelihood-ratio-test-mostly-used">
+<section id="likelihood-ratio-test-mostly-used">
 <h4>Likelihood ratio test 🌟 (Mostly Used)<a class="headerlink" href="#likelihood-ratio-test-mostly-used" title="Permalink to this heading">#</a></h4>
 <p>Test statistic</p>
 <div class="math notranslate nohighlight">
@@ -476,31 +480,31 @@ H1: β has effect (i.e. predictor is significant)</p>
 &amp;=  D_w - D_\omega  \stackrel{d}{\approx} \chi^2(s)\end{split}\]</div>
 <p>where $\widetilde{\beta}$ is MLE under H0, and $\hat{(\beta)}$ is MLE under H1 <br>
 for $\Delta D$, H0 with dof $ s = dim(β_{Ω-ω})$</p>
-</div>
-<div class="section" id="wald-test">
+</section>
+<section id="wald-test">
 <h4>Wald test<a class="headerlink" href="#wald-test" title="Permalink to this heading">#</a></h4>
 <p>Test statistic
 $$W = \frac{(\hat{\beta} - \beta_0)^2}{\mathrm{Var}(\hat{\beta})}$$</p>
-</div>
-<div class="section" id="score-test">
+</section>
+<section id="score-test">
 <h4>Score test<a class="headerlink" href="#score-test" title="Permalink to this heading">#</a></h4>
 <p>Test statistic
 $$S = \frac{\partial \ell(\boldsymbol{\theta})/\partial \beta}{\sqrt{\mathrm{Var}(\partial \ell(\boldsymbol{\theta})/\partial \beta)}} \Bigg\rvert_{\beta = \hat{\beta}}$$</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="lr-test-continued">
+<section id="lr-test-continued">
 <h4>LR test Continued<a class="headerlink" href="#lr-test-continued" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight" id="equation-deviance">
 <span class="eqno">(7)<a class="headerlink" href="#equation-deviance" title="Permalink to this equation">#</a></span>\[\begin{split}D(\boldsymbol{\beta}) &amp;= -2\big[\log L(\boldsymbol{\beta}) - \log L(\boldsymbol{0})\big] \\
 &amp;= -2 [\sum_{i=1}^{n} y_i \ln \left( \frac{\hat{y}_i}{y_i} \right) + (1-y_i) \ln \left( \frac{1-\hat{y}_i}{1-y_i} \right)] \\
 &amp;= -2[\sum_{i=1}^n \left[ y_i\log\left({p_i}\right) + (1-y_i)\log\left({1-p_i}\right)\right]]\end{split}\]</div>
-<p>The log-likelihood function can be seen at <code class="xref eq docutils literal notranslate"><span class="pre">log-like</span></code></p>
+<p>The log-likelihood function can be seen at <a class="reference internal" href="c2.1.html#equation-log-like">(3)</a></p>
 <div class="admonition-deviance-vs-residual-deviance admonition">
 <p class="admonition-title">Deviance vs Residual Deviance</p>
 <p>In other examples of GLMs, the deviance is a measure of how well the model fit the data. But in the case where the response is binary, the deviance cannot be used for measuring goodness of fit, because the deviance is just a function of pi ’s</p>
 <p>However, Residual deviance is can be used for measuring goodness of fit. It is the difference between 2 deviance which represents the deviance that adding one predictor reduces.</p>
 </div>
-<div class="section" id="chi-square-test-residual-deviance">
+<section id="chi-square-test-residual-deviance">
 <h5>Chi-square Test &amp; Residual Deviance<a class="headerlink" href="#chi-square-test-residual-deviance" title="Permalink to this heading">#</a></h5>
 <p>CHD example 2 (from prac)</p>
 <p>The following data were obtained from a study of coronary heart disease, where N is the total number of subjects in each group and Y is the number diagnosed with coronary heart disease. The factor CHOL refers to serum cholesterol in mg/100cc where:
@@ -509,7 +513,7 @@ $$S = \frac{\partial \ell(\boldsymbol{\theta})/\partial \beta}{\sqrt{\mathrm{Var
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/chd.png"><img alt="fishy" class="bg-primary mb-1 align-center" src="_images/chd.png" style="width: 200px;" /></a>
 <hr class="docutils" />
 <p>It is important for us to transform this data into the form that R recognises:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Y</p></th>
 <th class="head"><p>N</p></th>
@@ -605,10 +609,10 @@ $$S = \frac{\partial \ell(\boldsymbol{\theta})/\partial \beta}{\sqrt{\mathrm{Var
 <span class="n">N</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">119</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">44</span><span class="p">)</span>
 <span class="n">BP</span> <span class="o">&lt;-</span> <span class="n">factor</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">CHOL</span> <span class="o">&lt;-</span> <span class="n">factor</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">rep</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
-<span class="n">fit</span><span class="o">.</span><span class="mi">1</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
-<span class="n">fit</span><span class="o">.</span><span class="mi">2</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
-<span class="n">fit</span><span class="o">.</span><span class="mi">4</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span> <span class="o">+</span> <span class="n">BP</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fit</span><span class="mf">.1</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
+<span class="n">fit</span><span class="mf">.2</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
+<span class="n">fit</span><span class="mf">.4</span> <span class="o">&lt;-</span> <span class="n">glm</span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span> <span class="o">~</span> <span class="n">CHOL</span> <span class="o">+</span> <span class="n">BP</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;binomial&quot;</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">fit</span><span class="mf">.2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Call:
@@ -730,8 +734,8 @@ AIC: 85.909
 <p>Deviance Residual: How many deviance can the added variable explain (same as Change in Deviance) [31.921] (bigger, better)</p>
 <p>Residual Deviance: How many deviance still uninterpreted (after adding that variable. ) [26.805] (smaller, better)</p>
 </div>
-</div>
-<div class="section" id="test-significance-of-predictor-coding">
+</section>
+<section id="test-significance-of-predictor-coding">
 <h5>Test Significance of Predictor (Coding)<a class="headerlink" href="#test-significance-of-predictor-coding" title="Permalink to this heading">#</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># model2 CHD ~ CHOL</span>
 <span class="n">Analysis</span> <span class="n">of</span> <span class="n">Deviance</span> <span class="n">Table</span>
@@ -770,14 +774,14 @@ Hence p &gt; 0.05: can’t reject H0. Conclude: predictors NOT significant</p>
 <p class="admonition-title">Reasoning?</p>
 <p>p-value = 5.437987e-07 &lt; 0.05, reject H0: not significant. Conclude: predictor significant.</p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="test-model-adequacy-code">
+<section id="test-model-adequacy-code">
 <h3>Test Model Adequacy (Code)<a class="headerlink" href="#test-model-adequacy-code" title="Permalink to this heading">#</a></h3>
 <p>:label: TMA</p>
-<div class="section" id="model">
+<section id="model">
 <h4>1 Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h4>
 <p>Is model 2 adequate?</p>
 <div class="admonition tip">
@@ -797,15 +801,15 @@ Hence p &gt; 0.05: can’t reject H0. Conclude: model IS adequate</p>
 <p class="admonition-title">Reasoning?</p>
 <p>p-value = 0.008242301 &lt; 0.05, reject H0: model is adequate. Conclude: model is not adequate.</p>
 </div>
-</div>
-<div class="section" id="models">
+</section>
+<section id="models">
 <h4>2 Models<a class="headerlink" href="#models" title="Permalink to this heading">#</a></h4>
 <p>Which model is a better choice mod2 or mod4?</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>ANOVA can only be used when models are nested.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anova</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="s2">&quot;Chi&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anova</span><span class="p">(</span><span class="n">fit</span><span class="mf">.2</span><span class="p">,</span> <span class="n">fit</span><span class="mf">.4</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="s2">&quot;Chi&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Analysis of Deviance Table
@@ -830,12 +834,12 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 <p class="admonition-title">Which model is better?</p>
 <p>0.0003111 &lt; 0.05, reject H0: smaller model better. Conclude: bigger model better (i.e. mod4 fits the data better)</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="confidence-interval">
+</section>
+</section>
+</section>
+<section id="confidence-interval">
 <h2>Confidence Interval<a class="headerlink" href="#confidence-interval" title="Permalink to this heading">#</a></h2>
-<div class="section" id="confidence-interval-for-beta">
+<section id="confidence-interval-for-beta">
 <h3>Confidence Interval for $\beta$<a class="headerlink" href="#confidence-interval-for-beta" title="Permalink to this heading">#</a></h3>
 <p>Reminder of our fomualr <a class="reference internal" href="#equation-chd">(6)</a>:</p>
 <div class="math notranslate nohighlight">
@@ -858,13 +862,13 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 <p class="admonition-title">Tip</p>
 <p>The CI does not include zero =&gt; $\beta \neq 0$ and hence that there is significant association between the predictor and response</p>
 </div>
-</div>
-<div class="section" id="confidence-interval-with-covariance">
+</section>
+<section id="confidence-interval-with-covariance">
 <h3>Confidence Interval with Covariance<a class="headerlink" href="#confidence-interval-with-covariance" title="Permalink to this heading">#</a></h3>
 <p>$\eta$ in line</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

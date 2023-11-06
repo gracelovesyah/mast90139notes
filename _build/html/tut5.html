@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Prac5 &#8212; My sample book</title>
   
   
@@ -176,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="c4.3.html">4.3 Bernoulli trials and the binomial distribution</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="c4.6.html">4.6 Residuals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter5_Analysis_of_Contingency_Tables_by_Log_Linear_Models.html">Chapter 5 Analysis of Contingency Tables by Log Linear Models</a></li>
@@ -196,8 +198,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tut7.html">Prac7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut8.html">Prac8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut9.html">Prac9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut10.html">Prac10 Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testnotes.html">Tests</a></li>
 </ul>
 
     </div>
@@ -409,22 +413,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="prac5">
+  <section id="prac5">
 <h1>Prac5<a class="headerlink" href="#prac5" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mf">32.7</span><span class="p">,</span> <span class="mf">38.3</span><span class="p">,</span> <span class="mf">39.8</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">34.3</span><span class="p">,</span> <span class="mf">36.3</span><span class="p">,</span> <span class="mf">32.5</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">30.4</span><span class="p">,</span> <span class="mf">28.2</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">glm</span><span class="o">.</span><span class="mi">2</span><span class="n">a</span><span class="o">=</span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">poisson</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="mi">2</span><span class="n">a</span><span class="p">)</span>
+<span class="n">glm</span><span class="mf">.2</span><span class="n">a</span><span class="o">=</span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">poisson</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">glm</span><span class="mf">.2</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-c96038444d3d&gt;&quot;</span><span class="gt">, line </span><span class="mi">3</span>
-    <span class="n">glm</span><span class="o">.</span><span class="mi">2</span><span class="n">a</span><span class="o">=</span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">poisson</span><span class="p">)</span>
-       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="n">glm</span><span class="mf">.2</span><span class="n">a</span><span class="o">=</span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">poisson</span><span class="p">)</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid decimal literal
 </pre></div>
 </div>
 </div>
@@ -463,11 +467,11 @@ points(x,y)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="q3">
+</section>
+<section id="q3">
 <h1>Q3<a class="headerlink" href="#q3" title="Permalink to this heading">#</a></h1>
-</div>
-<div class="section" id="test-of-adequacy">
+</section>
+<section id="test-of-adequacy">
 <h1>χ2 test of adequacy.<a class="headerlink" href="#test-of-adequacy" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -555,7 +559,7 @@ deviance(fit.5)-deviance(fit.4) &gt; qchisq(0.95, df = df.residual(fit.5) - df.r
 </div>
 </div>
 </div>
-<div class="section" id="including-plots">
+<section id="including-plots">
 <h2>Including Plots<a class="headerlink" href="#including-plots" title="Permalink to this heading">#</a></h2>
 <p>You can also embed plots, for example:</p>
 <div class="cell docutils container">
@@ -566,8 +570,8 @@ deviance(fit.5)-deviance(fit.4) &gt; qchisq(0.95, df = df.residual(fit.5) - df.r
 </div>
 </div>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
